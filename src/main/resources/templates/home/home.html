@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/partials/partials :: head">
+    <title>title</title>
+</head>
 <head>
     <meta charset="UTF-8" />
-    <title>Home</title>
+    <title></title>
+    <!--    <title>title</title>-->
 </head>
 <body>
 <h1>This is the home page</h1>
@@ -11,6 +15,16 @@
 <p>Person's name is <span th:text="${personName}">insert person here</span>!</p>
 
 <p>Person's age is <span th:text="${personAge}">insert age here</span>!</p>
+
+<div th:replace="/partials/partials :: my-partial">
+    This div will be *replaced* by the fragment
+</div>
+
+<div th:insert="/partials/partials :: my-partial">
+    The entire content of the partial will be *included* inside this div.
+</div>
+
+
 
 </body>
 </html>
