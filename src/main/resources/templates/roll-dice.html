@@ -2,27 +2,21 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:insert="/partials/partials :: head" >
     <title>Roll Dice</title>
+<!--    <link rel="stylesheet" href="/css/style.css"/>-->
+    <link rel="stylesheet" href="/static/css/style.css" />
+
 </head>
 <body class="m-2">
+<header th:insert="/partials/partials :: header"></header>
+<nav th:insert="/partials/partials :: navbar" ></nav>
 
-<h1>Guess a number from 1 to 6</h1>
+<div class="container pt-3">
+    <h1>Guess a number from 1 to 6</h1>
 
-<h1 th:if="${answer == n}">
-<!--    <p>guess</p>-->
-<!--    guess-->
-    <span th:text="${n}">(guess)</span>
-<!--    <span> is equal to </span>-->
-<!--    answer-->
-<!--    <p>answer</p>-->
-    <span th:text="${answer}">(answer)</span>
-</h1>
-<!--<h1 th:if="${answer != n}">-->
-<!--&lt;!&ndash;    <p>guess</p>&ndash;&gt;-->
-<!--    <span th:text="${n}"></span>-->
-<!--    &lt;!&ndash;    <span> is equal to </span>&ndash;&gt;-->
-<!--&lt;!&ndash;    <p>answer</p>&ndash;&gt;-->
-<!--    <span th:text="${answer}"></span>-->
-<!--</h1>-->
+    <h1 th:if="${answer == n}">
+        <span th:text="${n}">(guess)</span>
+        <span th:text="${answer}">(answer)</span>
+    </h1>
 
     <a href="roll-dice/1">1</a>
     <a href="roll-dice/2">2</a>
@@ -31,5 +25,8 @@
     <a href="roll-dice/5">5</a>
     <a href="roll-dice/6">6</a>
 
+</div>
+
+    <footer th:insert="/partials/partials :: footer"></footer>
 </body>
 </html>
