@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="/partials/partials :: head" >
+    <title>Show Posts</title>
+</head>
+<body>
+    <header th:insert="/partials/partials :: header"></header>
+    <nav th:insert="/partials/partials :: navbar" ></nav>
+
+    <h1 th:if="${posts.size() > 0}"><span th:text="${posts}">(insert posts here)</span></h1>
+
+    <div class="alert alert-danger" th:if="${errMsg}">
+        Something bad happened!
+    </div>
+
+    <ul th:each="post : ${posts}">
+        <li th:text="${post.title}" >(insert post title)</li>
+        <li th:text="${post.body}" >(insert post title)</li>
+    </ul>
+
+    <footer th:insert="/partials/partials :: footer"></footer>
+</body>
+</html>
