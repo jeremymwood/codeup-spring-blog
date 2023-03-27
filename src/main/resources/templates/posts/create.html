@@ -11,23 +11,23 @@
     Something bad happened!
 </div>
 
-<div class="row blog-header-container">
+<div class="row blog-header-container justify-content-center">
     <h1 th:text="${post}"></h1>
 
     <form class="d-flex flex-column w-25" action="/posts/create" method="post">
         <label for="date-ip">Date:</label>
-        <input type="text" name="date" id="date-ip" class="field my-3" />
+        <input type="text" name="date" id="date-ip" class="field" />
 
         <label for="title-ip">Title:</label>
-        <input type="text" name="title" id="title-ip" class="field my-3" />
+        <input type="text" name="title" id="title-ip" class="field" />
 
         <label for="author-ip">Author:</label>
-        <input type="text" name="author" id="author-ip" class="field my-3" />
+        <input type="text" name="author" id="author-ip" class="field mb-3" />
 
         <label for="body-ip">Body:</label>
-        <input type="text" name="body" id="body-ip" class="field my-3" />
+        <textarea type="text" name="body" id="body-ip" class="field my-3" rows="8"></textarea>
 
-        <button>Create Post</button>
+        <button class="btn btn-outline-secondary" type="submit">Create Post</button>
     </form>
 </div>
 <footer class="" th:insert="/partials/partials :: footer"></footer>
