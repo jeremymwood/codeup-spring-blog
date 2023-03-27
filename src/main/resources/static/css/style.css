@@ -1,9 +1,13 @@
 body {
-    /*height: 100vh;*/
+    height: 100vh;
+    position: relative;
 }
 
+
 .footer-dark {
-    /*bottom: 0;*/
+    /*top: auto;*/
+    bottom: 0;
+    position: absolute;
     padding:50px 0;
     color:#f0f9ff;
     background-color:#282d32;

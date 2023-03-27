@@ -9,7 +9,9 @@ import lombok.*;
 @ToString
 public class Post {
     private long id;
+    private String date;
     private String title;
+    private String author;
     private String body;
 
 }
