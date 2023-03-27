@@ -14,13 +14,7 @@ public class DiceController {
         int answer = (int) (Math.random() * 6) +1;
         model.addAttribute("n", n);
         model.addAttribute("answer", answer);
-
-//        if (n == answer) {
-//            return "Huzzah! You guessed " + n + ", and the answer was " + answer + ".";
-//        } else {
-//            return "Boo! You guessed " + n + ", and the answer was " + answer + ".";
-//        }
-        return "roll-dice";
+        return "guess";
     }
 
 }
