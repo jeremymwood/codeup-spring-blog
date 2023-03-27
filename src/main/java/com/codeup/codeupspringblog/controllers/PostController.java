@@ -30,10 +30,15 @@ public class PostController {
 
     @GetMapping("/{id}")
 //    @ResponseBody
-    public String viewPost(@PathVariable long id) {
+    public String viewPost(@PathVariable long id, @RequestParam(name = "date") String date,@RequestParam(name = "title") String title, @RequestParam(name = "author") String author,@RequestParam(name = "body") String body, Model model) {
         Post post = postDao.findById(id).get();
+        model.addAttribute("id", id);
+        model.addAttribute("date", date);
+        model.addAttribute("title", title);
+        model.addAttribute("author", author);
+        model.addAttribute("body", body);
         postDao.save(post);
-        return "/{id}";
+        return "posts/individualPost";
     }
 
 //    @GetMapping("/create")
@@ -82,14 +87,10 @@ public class PostController {
 
         model.addAttribute("post", "Great, \"" + post.getTitle() + "\" was successfully created.");
 
-
         return "posts/create";
     }
     @GetMapping("posts/create")
     public String redirect() {
-        // a relative (to the base domain) redirect, usually you will use this
-        // version
-        // Will redirect the users to `/about`
         return "redirect:posts/show";
     }
 }

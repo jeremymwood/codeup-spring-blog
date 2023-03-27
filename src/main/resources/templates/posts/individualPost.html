@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="/partials/partials :: head" >
+    <title>Show Posts</title>
+</head>
+<body class="p-3">
+    <header th:insert="/partials/partials :: header"></header>
+    <nav class="pb-3" th:insert="/partials/partials :: navbar" ></nav>
+
+<!--    <h1 th:if="${posts.size() > 0}"><span th:text="${posts.}">(insert posts here)</span></h1>-->
+
+    <div class="alert alert-danger" th:if="${errMsg}">
+        Something bad happened!
+    </div>
+
+    <div class="blog-header-container">
+        <h1 th:if="${post != null}">
+            "Great, \"" + ${post.getTitle()} + "\" was successfully created."
+        </h1>
+        <h1 th:if="${post == null}">
+            "No blogs to post."
+        </h1>
+        <p>You guessed <span th:text="${post}">(guess)</span></p>
+        <p>The answer was <span th:text="${answer}">(answer)</span></p>
+
+    </div>
+<!--    <div class="row blog-header-container">-->
+<!--        <div class="col-6 blog-header pb-2" th:each="post : ${posts}">-->
+<!--            <div class="blog-article header-article">-->
+<!--                <h2 class="blog-big__title" th:text="${post.title}">(insert post title)</h2>-->
+<!--                <div class="blog-menu small-title date" th:text="${post.date}"></div>-->
+<!--            </div>-->
+<!--            <div class="blog-article">-->
+<!--                <div class="blog-detail">-->
+<!--                    <span th:text="${post.author}"></span>-->
+<!--                </div>-->
+<!--                <p class="" th:text="${post.body}">(insert post body)</p>-->
+<!--                <a class="f-2 text-dark" href="/roll-dice">Read more...</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+    <footer class="" th:insert="/partials/partials :: footer"></footer>
+</body>
+</html>
