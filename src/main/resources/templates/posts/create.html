@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="/partials/partials :: head" >
+    <title>Show Posts</title>
+</head>
+<body class="p-3">
+<header th:insert="/partials/partials :: header"></header>
+<nav class="pb-3" th:insert="/partials/partials :: navbar" ></nav>
+
+<div class="alert alert-danger" th:if="${errMsg}">
+    Something bad happened!
+</div>
+
+<div class="row blog-header-container">
+    <h1 th:text="${post}"></h1>
+
+    <form class="d-flex flex-column w-25" action="/posts/create" method="post">
+        <label for="date-ip">Date:</label>
+        <input type="text" name="date" id="date-ip" class="field my-3" />
+
+        <label for="title-ip">Title:</label>
+        <input type="text" name="title" id="title-ip" class="field my-3" />
+
+        <label for="author-ip">Author:</label>
+        <input type="text" name="author" id="author-ip" class="field my-3" />
+
+        <label for="body-ip">Body:</label>
+        <input type="text" name="body" id="body-ip" class="field my-3" />
+
+        <button>Create Post</button>
+    </form>
+</div>
+<footer class="" th:insert="/partials/partials :: footer"></footer>
+</body>
+</html>
