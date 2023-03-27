@@ -13,7 +13,7 @@
     Something bad happened!
 </div>
 
-<div class="container pt-3">
+<div class="blog-header-container">
     <h1 th:if="${answer == n}">
         Huzzah!
     </h1>
@@ -24,6 +24,6 @@
     <p>The answer was <span th:text="${answer}">(answer)</span></p>
 
 </div>
-<footer class="footer-dark p-3" th:insert="/partials/partials :: footer"></footer>
+<footer class="" th:insert="/partials/partials :: footer"></footer>
 </body>
 </html>
