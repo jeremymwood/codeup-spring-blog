@@ -1,32 +1,29 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:insert="/partials/partials :: head" >
+<head th:replace="/partials/partials :: head" >
     <title>Show Posts</title>
 </head>
 <body class="p-3">
-    <header th:insert="/partials/partials :: header"></header>
-    <nav class="pb-3" th:insert="/partials/partials :: navbar" ></nav>
+<!--    <header th:replace="/partials/partials :: header"></header>-->
+    <nav class="pb-3" th:replace="/partials/partials :: navbar" ></nav>
 
     <div class="alert alert-danger" th:if="${errMsg}">
         Something bad happened!
     </div>
 
-    <div class="blog-header-container">
-        <div >
+    <div class="w-50 blog-header-container justify-content-center">
+        <div>
             <div class="blog-article header-article">
                 <h2 class="blog-big__title" th:text="${post.title}">(insert post title)</h2>
                 <div class="blog-menu small-title date" th:text="${post.date}"></div>
             </div>
             <div class="blog-article">
                 <div class="blog-detail">
-                    <span th:text="${post.author}"></span>
+                    By: <span th:text="${post.author}"></span>
                 </div>
                 <p class="" th:text="${post.body}">(insert post body)</p>
             </div>
         </div>
-        <h1 th:if="${id == null}">
-            "No blogs here."
-        </h1>
     </div>
 <!--    <div class="row blog-header-container">-->
 <!--        <div class="col-6 blog-header pb-2" th:each="post : ${posts}">-->
@@ -43,6 +40,6 @@
 <!--            </div>-->
 <!--        </div>-->
 <!--    </div>-->
-    <footer class="" th:insert="/partials/partials :: footer"></footer>
+    <footer class="" th:replace="/partials/partials :: footer"></footer>
 </body>
 </html>

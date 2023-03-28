@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="/css/style.css"/>
 </head>
 <body>
-    <header th:fragment="header">
-        <div>
-            <a class="f-2 text-dark" href="/roll-dice" title="logo"> Roll Dice </a>
-        </div>
-    </header>
+<!--    <header th:fragment="header">-->
+<!--        <div>-->
+<!--            <a class="f-2 text-dark" href="/roll-dice" title="logo"> Roll Dice </a>-->
+<!--        </div>-->
+<!--    </header>-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="navbar">
         <div class="container-fluid">
 <!--            <a class="navbar-brand" href="#">Roll Dice</a>-->
@@ -82,13 +82,15 @@
                     <li><a href="#">Careers</a></li>
                 </ul>
             </div>
-            <div class="col-md-6 item text">
+            <div class="col-md-3 item text">
                 <h3>Company Name</h3>
                 <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
             </div>
-            <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+            <div class="col-sm-12 col-md-3 item social"><a href="#">
+                    <i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a>
+                <p class="copyright">Company Name © 2018</p>
+            </div>
         </div>
-        <p class="copyright">Company Name © 2018</p>
     </footer>
 </body>
 </html>

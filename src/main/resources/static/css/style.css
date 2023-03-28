@@ -97,7 +97,7 @@ body {
 }
 
 .footer-dark .item.text {
-    margin-bottom:36px;
+    /*margin-bottom:36px;*/
 }
 
 @media (max-width:767px) {

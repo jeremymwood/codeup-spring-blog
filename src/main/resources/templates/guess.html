@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:insert="/partials/partials :: head" >
+<head th:replace="/partials/partials :: head" >
     <title>Show Posts</title>
 </head>
 <body class="p-3">
-<header th:insert="/partials/partials :: header"></header>
-<nav class="pb-3" th:insert="/partials/partials :: navbar" ></nav>
+<!--<header th:replace="/partials/partials :: header"></header>-->
+<nav class="pb-3" th:replace="/partials/partials :: navbar" ></nav>
 
 <!--    <h1 th:if="${posts.size() > 0}"><span th:text="${posts.}">(insert posts here)</span></h1>-->
 
@@ -24,6 +24,6 @@
     <p>The answer was <span th:text="${answer}">(answer)</span></p>
 
 </div>
-<footer class="" th:insert="/partials/partials :: footer"></footer>
+<footer class="" th:replace="/partials/partials :: footer"></footer>
 </body>
 </html>

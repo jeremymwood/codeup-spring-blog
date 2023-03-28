@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:insert="/partials/partials :: head" >
+<head th:replace="/partials/partials :: head" >
     <title>Show Posts</title>
 </head>
 <body class="p-3">
-    <header th:insert="/partials/partials :: header"></header>
-    <nav class="pb-3" th:insert="/partials/partials :: navbar" ></nav>
+<!--    <header th:replace="/partials/partials :: header"></header>-->
+    <nav class="pb-3" th:replace="/partials/partials :: navbar" ></nav>
 
 <!--    <h1 th:if="${posts.size() > 0}"><span th:text="${posts.}">(insert posts here)</span></h1>-->
 
@@ -22,10 +22,13 @@
             <div class="blog-article">
 <!--                <img src="https://images.unsplash.com/photo-1496629062893-b0f566065d44?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjV8fGJsYWNrJTIwYW5kJTIwd2hpdGV8ZW58MHwwfDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">-->
                 <div class="blog-detail">
-                    <span th:text="${post.author}"></span>
+                    By: <span th:text="${post.author}"></span>
                 </div>
                 <p class="" th:text="${post.body}">(insert post body)</p>
-                <a class="f-2 text-dark" th:href="@{/posts/{id}(id=${post.id})}">Read more...</a>
+<!--                one option for hrefs-->
+<!--                <a class="f-2 text-dark" th:href="@{/posts/{id}(id=${post.id})}">Read more...</a>-->
+<!--                with pipes-->
+                <a class="f-2 text-dark" th:href="@{|/posts/${post.id}|}">Read more...</a>
 <!--                <a href="#">-->
 <!--                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-corner-down-right" viewBox="0 0 24 24">-->
 <!--                        <path d="M15 10l5 5-5 5" />-->
@@ -36,6 +39,6 @@
             </div>
         </div>
     </div>
-    <footer class="" th:insert="/partials/partials :: footer"></footer>
+    <footer class="" th:replace="/partials/partials :: footer"></footer>
 </body>
 </html>
