@@ -28,17 +28,18 @@ public class PostController {
         return "posts/show";
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/posts/{id}")
 //    @ResponseBody
-    public String viewPost(@PathVariable long id, @RequestParam(name = "date") String date,@RequestParam(name = "title") String title, @RequestParam(name = "author") String author,@RequestParam(name = "body") String body, Model model) {
-        Post post = postDao.findById(id).get();
-        model.addAttribute("id", id);
-        model.addAttribute("date", date);
-        model.addAttribute("title", title);
-        model.addAttribute("author", author);
-        model.addAttribute("body", body);
-        postDao.save(post);
-        return "posts/individualPost";
+    public String viewPost(@PathVariable long id, Model model) {
+//        model.addAttribute("id", id);
+//        model.addAttribute("date", date);
+//        model.addAttribute("title", title);
+//        model.addAttribute("author", author);
+//        model.addAttribute("body", body);
+        postDao.findById(id);
+
+
+        return "/posts/individualPost";
     }
 
 //    @GetMapping("/create")
@@ -89,8 +90,8 @@ public class PostController {
 
         return "posts/create";
     }
-    @GetMapping("posts/create")
+    @GetMapping("/posts/create")
     public String redirect() {
-        return "redirect:posts/show";
+        return "redirect:/posts";
     }
 }

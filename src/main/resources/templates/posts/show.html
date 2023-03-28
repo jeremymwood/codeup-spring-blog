@@ -25,8 +25,7 @@
                     <span th:text="${post.author}"></span>
                 </div>
                 <p class="" th:text="${post.body}">(insert post body)</p>
-<!--                <a class="f-2 text-dark" th:href="/${post.id}">Read more...</a>-->
-                <a class="f-2 text-dark" href="/roll-dice">Read more...</a>
+                <a class="f-2 text-dark" th:href="@{/posts/{id}(id=${post.id})}">Read more...</a>
 <!--                <a href="#">-->
 <!--                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-corner-down-right" viewBox="0 0 24 24">-->
 <!--                        <path d="M15 10l5 5-5 5" />-->

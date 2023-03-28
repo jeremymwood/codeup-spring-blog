@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface PostRepository extends JpaRepository<Post, Long> {
+//    Post findById(long id);
     Post findByTitle(String name);
     List<Post> findByAuthor(String Author);
 
