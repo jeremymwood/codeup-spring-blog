@@ -27,4 +27,7 @@ public class Post {
     @Column(length=65535, nullable = false)
     private String body;
 
+    @ManyToOne
+    @JoinColumn (name = "user_id")
+    private User user;
 }

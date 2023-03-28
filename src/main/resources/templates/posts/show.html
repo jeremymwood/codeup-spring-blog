@@ -24,6 +24,11 @@
                 <div class="blog-detail">
                     By: <span th:text="${post.author}"></span>
                 </div>
+<!--                **********************-->
+<!--                can't get user to work-->
+<!--                <div class="blog-detail" th:if="${user.email}  != null">-->
+<!--                    By: <span th:text="${user.email}"></span>-->
+<!--                </div>-->
                 <p class="" th:text="${post.body}">(insert post body)</p>
 <!--                one option for hrefs-->
 <!--                <a class="f-2 text-dark" th:href="@{/posts/{id}(id=${post.id})}">Read more...</a>-->

@@ -1,7 +1,9 @@
 package com.codeup.codeupspringblog.controllers;
 
 import com.codeup.codeupspringblog.models.Post;
+import com.codeup.codeupspringblog.models.User;
 import com.codeup.codeupspringblog.repositories.PostRepository;
+import com.codeup.codeupspringblog.repositories.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +16,9 @@ import java.util.List;
 @RequestMapping(path = "/posts")
 public class PostController {
     private final PostRepository postDao;
+    private final UserRepository userDao;
+
+
 
     @GetMapping
     public String all(Model model) {
@@ -80,21 +85,23 @@ public class PostController {
     public String addPost(@RequestParam String date,@RequestParam String title, @RequestParam String author,@RequestParam String body, Model model) {
 
         Post post = new Post();
+        User user = new User();
 
         post.setDate(date);
         post.setTitle(title);
         post.setAuthor(author);
         post.setBody(body);
+        user.setUsername("m");
+        user.setEmail("m@m.com");
+        user.setPassword("mpw");
 
         postDao.save(post);
 
-//        model.addAttribute("post", "Great, \"" + post.getTitle() + "\" was successfully created.");
 
-//        return "posts/create";
+        userDao.save(user);
+
+//        success message
+//        model.addAttribute("post", "Great, \"" + post.getTitle() + "\" was successfully created.");
         return "redirect:/posts";
     }
-//    @GetMapping("/posts/create")
-//    public String redirect() {
-//        return "redirect:/posts";
-//    }
 }
