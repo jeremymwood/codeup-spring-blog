@@ -14,14 +14,14 @@
     <div class="blog-header-container">
         <div >
             <div class="blog-article header-article">
-                <h2 class="blog-big__title" th:text="${title}">(insert post title)</h2>
-                <div class="blog-menu small-title date" th:text="${date}"></div>
+                <h2 class="blog-big__title" th:text="${post.title}">(insert post title)</h2>
+                <div class="blog-menu small-title date" th:text="${post.date}"></div>
             </div>
             <div class="blog-article">
                 <div class="blog-detail">
-                    <span th:text="${author}"></span>
+                    <span th:text="${post.author}"></span>
                 </div>
-                <p class="" th:text="${body}">(insert post body)</p>
+                <p class="" th:text="${post.body}">(insert post body)</p>
             </div>
         </div>
         <h1 th:if="${id == null}">

@@ -28,15 +28,17 @@ public class PostController {
         return "posts/show";
     }
 
-    @GetMapping("/posts/{id}")
+    @GetMapping("/{id}")
 //    @ResponseBody
     public String viewPost(@PathVariable long id, Model model) {
-//        model.addAttribute("id", id);
+
+
+        Post post = postDao.findById(id).get();
+        model.addAttribute("post", post);
 //        model.addAttribute("date", date);
 //        model.addAttribute("title", title);
 //        model.addAttribute("author", author);
 //        model.addAttribute("body", body);
-        postDao.findById(id);
 
 
         return "/posts/individualPost";
@@ -71,11 +73,11 @@ public class PostController {
     }
 
     @GetMapping("/create")
-    public String showCreateBlogForm() {
+    public String showCreatePostForm() {
         return "posts/create";
     }
     @PostMapping("/create")
-    public String inputPost(@RequestParam(name = "date") String date,@RequestParam(name = "title") String title, @RequestParam(name = "author") String author,@RequestParam(name = "body") String body, Model model) {
+    public String addPost(@RequestParam String date,@RequestParam String title, @RequestParam String author,@RequestParam String body, Model model) {
 
         Post post = new Post();
 
@@ -86,12 +88,13 @@ public class PostController {
 
         postDao.save(post);
 
-        model.addAttribute("post", "Great, \"" + post.getTitle() + "\" was successfully created.");
+//        model.addAttribute("post", "Great, \"" + post.getTitle() + "\" was successfully created.");
 
-        return "posts/create";
-    }
-    @GetMapping("/posts/create")
-    public String redirect() {
+//        return "posts/create";
         return "redirect:/posts";
     }
+//    @GetMapping("/posts/create")
+//    public String redirect() {
+//        return "redirect:/posts";
+//    }
 }
