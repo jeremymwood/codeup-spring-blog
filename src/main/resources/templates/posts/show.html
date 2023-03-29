@@ -3,19 +3,20 @@
 <head th:replace="/partials/partials :: head" >
     <title>Show Posts</title>
 </head>
-<body class="p-3">
+<body class="p-3 d-flex flex-column">
 <!--    <header th:replace="/partials/partials :: header"></header>-->
     <nav class="pb-3" th:replace="/partials/partials :: navbar" ></nav>
 
 <!--    <h1 th:if="${posts.size() > 0}"><span th:text="${posts.}">(insert posts here)</span></h1>-->
 
-    <div class="alert alert-danger" th:if="${errMsg}">
-        Something bad happened!
-    </div>
 
-    <div class="container d-flex flex-grow-1">
+    <div class="container flex-grow-1">
+        <div class="alert alert-danger" th:if="${errMsg}">
+            Something bad happened!
+        </div>
+
         <div class="row g-5">
-            <div class="col-sm-12 col-md-3"  th:each="post : ${posts}">
+            <div class="col-sm-12 col-md-6"  th:each="post : ${posts}">
                 <div class="post-header">
                     <h2 class="post-title" th:text="${post.title}">(insert post title)</h2>
                     <div class="post-date" th:text="${post.date}"></div>
