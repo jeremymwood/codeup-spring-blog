@@ -52,18 +52,19 @@ body {
     }
 }
 
-.post-container {
-    display: grid;
-    gap: 1.5rem;
-    grid-template-columns: repeat(2, 1fr);
-}
+/*.post-container {*/
+/*    display: grid;*/
+/*    gap: 1.5rem;*/
+/*    grid-template-columns: repeat(2, 1fr);*/
+/*}*/
 
 
 .footer-dark {
     /*top: auto;*/
-    bottom: 0;
-    left: 0;
-    position: absolute;
+    /*bottom: 0;*/
+    /*left: 0;*/
+    /*margin-top: auto;*/
+    position: relative;
     /*padding:50px 0;*/
     color:#f0f9ff;
     background-color:#282d32;

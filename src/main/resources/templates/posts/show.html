@@ -13,30 +13,55 @@
         Something bad happened!
     </div>
 
-    <div class="post-container">
-        <div class="post pb-2" th:each="post : ${posts}">
-            <div class="post-header">
-                <h2 class="blog-big__title" th:text="${post.title}">(insert post title)</h2>
-                <div class="blog-menu small-title date" th:text="${post.date}"></div>
-                <div class="blog-detail">
-                    By: <span th:text="${post.user.username}"></span>
+    <div class="container d-flex flex-grow-1">
+        <div class="row g-5">
+            <div class="col-sm-12 col-md-3"  th:each="post : ${posts}">
+                <div class="post-header">
+                    <h2 class="post-title" th:text="${post.title}">(insert post title)</h2>
+                    <div class="post-date" th:text="${post.date}"></div>
+                    <div class="post-username">
+                        By: <span th:text="${post.user.username}"></span>
+                    </div>
                 </div>
-            </div>
-            <div class="post-article">
-<!--            <img src="https://images.unsplash.com/photo-1496629062893-b0f566065d44?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjV8fGJsYWNrJTIwYW5kJTIwd2hpdGV8ZW58MHwwfDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">-->
-<!--            **********************-->
-<!--            can't get user to work-->
-<!--            <div class="blog-detail" th:if="${user.email}  != null">-->
-<!--                By: <span th:text="${user.email}"></span>-->
-<!--            </div>-->
-                <p class="" th:text="${post.body}">(insert post body)</p>
-    <!--                one option for hrefs-->
-    <!--                <a class="f-2 text-dark" th:href="@{/posts/{id}(id=${post.id})}">Read more...</a>-->
-    <!--                with pipes-->
-                <a class="f-2 text-dark" th:href="@{|/posts/${post.id}|}">Read more...</a>
+                <div class="post-body" th:text="${post.body}">
+                    <!--            <img src="https://images.unsplash.com/photo-1496629062893-b0f566065d44?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjV8fGJsYWNrJTIwYW5kJTIwd2hpdGV8ZW58MHwwfDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">-->
+                    <!--            **********************-->
+                    <!--            can't get user to work-->
+                    <!--            <div class="blog-detail" th:if="${user.email}  != null">-->
+                    <!--                By: <span th:text="${user.email}"></span>-->
+                    <!--            </div>-->
+                    <!--                one option for hrefs-->
+                    <!--                <a class="f-2 text-dark" th:href="@{/posts/{id}(id=${post.id})}">Read more...</a>-->
+                    <!--                with pipes-->
+                    <a class="f-2 text-dark" th:href="@{|/posts/${post.id}|}">Read more...</a>
+                </div>
             </div>
         </div>
     </div>
+<!--    <div class="post-container">-->
+<!--        <div class="post pb-2" th:each="post : ${posts}">-->
+<!--            <div class="post-header">-->
+<!--                <h2 class="blog-big__title" th:text="${post.title}">(insert post title)</h2>-->
+<!--                <div class="blog-menu small-title date" th:text="${post.date}"></div>-->
+<!--                <div class="blog-detail">-->
+<!--                    By: <span th:text="${post.user.username}"></span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="post-article">-->
+<!--&lt;!&ndash;            <img src="https://images.unsplash.com/photo-1496629062893-b0f566065d44?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjV8fGJsYWNrJTIwYW5kJTIwd2hpdGV8ZW58MHwwfDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">&ndash;&gt;-->
+<!--&lt;!&ndash;            **********************&ndash;&gt;-->
+<!--&lt;!&ndash;            can't get user to work&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="blog-detail" th:if="${user.email}  != null">&ndash;&gt;-->
+<!--&lt;!&ndash;                By: <span th:text="${user.email}"></span>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--                <p class="" th:text="${post.body}">(insert post body)</p>-->
+<!--    &lt;!&ndash;                one option for hrefs&ndash;&gt;-->
+<!--    &lt;!&ndash;                <a class="f-2 text-dark" th:href="@{/posts/{id}(id=${post.id})}">Read more...</a>&ndash;&gt;-->
+<!--    &lt;!&ndash;                with pipes&ndash;&gt;-->
+<!--                <a class="f-2 text-dark" th:href="@{|/posts/${post.id}|}">Read more...</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
     <footer class="" th:replace="/partials/partials :: footer"></footer>
 </body>
 </html>
