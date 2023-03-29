@@ -82,23 +82,24 @@ public class PostController {
         return "posts/create";
     }
     @PostMapping("/create")
-    public String addPost(@RequestParam String date,@RequestParam String title, @RequestParam String author,@RequestParam String body, Model model) {
+    public String addPost(@RequestParam String date,@RequestParam String title, @RequestParam String body, Model model) {
 
         Post post = new Post();
-        User user = new User();
 
         post.setDate(date);
         post.setTitle(title);
-        post.setAuthor(author);
         post.setBody(body);
-        user.setUsername("m");
-        user.setEmail("m@m.com");
-        user.setPassword("mpw");
+
+        User user = userDao.findById(1L);
+//        User tempUser = userDao.findById(4L).get();
+//
+//        model.addAttribute("email", tempUser);
+
+        post.setUser(user);
+        System.out.println(post.getUser().getEmail());
 
         postDao.save(post);
 
-
-        userDao.save(user);
 
 //        success message
 //        model.addAttribute("post", "Great, \"" + post.getTitle() + "\" was successfully created.");

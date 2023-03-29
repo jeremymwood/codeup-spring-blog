@@ -21,13 +21,11 @@ public class Post {
     @Column(length=1024, nullable = false)
     private String title;
 
-    @Column(length=1024, nullable = false)
-    private String author;
-
     @Column(length=65535, nullable = false)
     private String body;
 
     @ManyToOne
     @JoinColumn (name = "user_id")
+//    @Column(nullable = false)
     private User user;
 }

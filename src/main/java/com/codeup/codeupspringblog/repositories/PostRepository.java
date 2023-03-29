@@ -10,8 +10,6 @@ import java.util.List;
 public interface PostRepository extends JpaRepository<Post, Long> {
 //    Post findById(long id);
     List<Post> findByTitle(String title);
-    List<Post> findByAuthor(String Author);
-
 //    can add find by user id later
 //    may need a separate repo...
 

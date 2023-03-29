@@ -19,27 +19,12 @@
             </div>
             <div class="blog-article">
                 <div class="blog-detail">
-                    By: <span th:text="${post.author}"></span>
+                    (<span th:text="${post.user.email}"></span>)
                 </div>
                 <p class="" th:text="${post.body}">(insert post body)</p>
             </div>
         </div>
     </div>
-<!--    <div class="row blog-header-container">-->
-<!--        <div class="col-6 blog-header pb-2" th:each="post : ${posts}">-->
-<!--            <div class="blog-article header-article">-->
-<!--                <h2 class="blog-big__title" th:text="${post.title}">(insert post title)</h2>-->
-<!--                <div class="blog-menu small-title date" th:text="${post.date}"></div>-->
-<!--            </div>-->
-<!--            <div class="blog-article">-->
-<!--                <div class="blog-detail">-->
-<!--                    <span th:text="${post.author}"></span>-->
-<!--                </div>-->
-<!--                <p class="" th:text="${post.body}">(insert post body)</p>-->
-<!--                <a class="f-2 text-dark" href="/roll-dice">Read more...</a>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
     <footer class="" th:replace="/partials/partials :: footer"></footer>
 </body>
 </html>
