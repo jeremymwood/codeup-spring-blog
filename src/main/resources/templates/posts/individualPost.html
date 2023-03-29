@@ -16,11 +16,11 @@
             <div class="blog-article header-article">
                 <h2 class="blog-big__title" th:text="${post.title}">(insert post title)</h2>
                 <div class="blog-menu small-title date" th:text="${post.date}"></div>
-            </div>
-            <div class="blog-article">
                 <div class="blog-detail">
                     (<span th:text="${post.user.email}"></span>)
                 </div>
+            </div>
+            <div class="blog-article">
                 <p class="" th:text="${post.body}">(insert post body)</p>
             </div>
         </div>

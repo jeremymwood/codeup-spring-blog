@@ -91,9 +91,6 @@ public class PostController {
         post.setBody(body);
 
         User user = userDao.findById(1L);
-//        User tempUser = userDao.findById(4L).get();
-//
-//        model.addAttribute("email", tempUser);
 
         post.setUser(user);
         System.out.println(post.getUser().getEmail());
