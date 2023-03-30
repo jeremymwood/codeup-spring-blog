@@ -18,7 +18,7 @@
         Edit post:
     </h1>
 
-    <form class="d-flex flex-column" th:action="@{/posts/edit}" th:method="post" th:object="${post}">
+    <form class="d-flex flex-column" th:action="@{|/posts/${id}/edit|}" th:method="post" th:object="${post}">
         <label for="title-ip">Title:</label>
         <input type="text" th:field="*{title}" id="title-ip" class="field mb-3" th:value="${post.title}"/>
 
