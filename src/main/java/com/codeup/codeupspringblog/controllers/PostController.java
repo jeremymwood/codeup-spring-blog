@@ -78,16 +78,18 @@ public class PostController {
     }
 
     @GetMapping("/create")
-    public String showCreatePostForm() {
+    public String showCreatePostForm(Model model) {
+        model.addAttribute("post", new Post());
         return "posts/create";
     }
-    @PostMapping("/create")
-    public String addPost(@RequestParam String date,@RequestParam String title, @RequestParam String body, Model model) {
 
-        Post post = new Post();
-        post.setDate(date);
-        post.setTitle(title);
-        post.setBody(body);
+    @PostMapping("/create")
+    public String addPost(@ModelAttribute Post post) {
+
+//        Post post = new Post();
+//        post.setDate(date);
+//        post.setTitle(title);
+//        post.setBody(body);
 
         User user = userDao.findById(1L);
         post.setUser(user);

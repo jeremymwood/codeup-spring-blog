@@ -7,22 +7,26 @@
 <!--<header th:replace="/partials/partials :: header"></header>-->
 <nav class="pb-3" th:replace="/partials/partials :: navbar" ></nav>
 
-<div class="alert alert-danger" th:if="${errMsg}">
-    Something bad happened!
-</div>
 
-<div class="row blog-header-container justify-content-center">
-    <h1 th:text="${post}"></h1>
+<div class="container d-flex flex-grow-1 flex-column justify-content-center w-25">
 
-    <form class="d-flex flex-column w-25" action="/posts/create" method="post">
+    <div class="alert alert-danger" th:if="${errMsg}">
+        Something bad happened!
+    </div>
+
+    <h1 class="">
+        Create post:
+    </h1>
+
+    <form class="d-flex flex-column" th:action="@{/posts/create}" th:method="post" th:object="${post}">
         <label for="title-ip">Title:</label>
-        <input type="text" name="title" id="title-ip" class="field mb-3"/>
+        <input type="text" th:field="*{title}" id="title-ip" class="field mb-3"/>
 
         <label for="date-ip">Date:</label>
-        <input type="text" name="date" id="date-ip" class="field mb-3"/>
+        <input type="text" th:field="*{date}" id="date-ip" class="field mb-3"/>
 
         <label for="body-ip">Body:</label>
-        <textarea type="text" name="body" id="body-ip" class="field mb-3" rows="6"></textarea>
+        <textarea type="text" th:field="*{body}" id="body-ip" class="field mb-3" rows="6"></textarea>
 
         <button class="btn btn-outline-secondary" type="submit">Create Post</button>
     </form>
