@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/partials/partials :: head" >
+    <title>Show Posts</title>
+</head>
+<body class="p-3">
+<!--<header th:replace="/partials/partials :: header"></header>-->
+<nav class="pb-3" th:replace="/partials/partials :: navbar" ></nav>
+
+
+<div class="container d-flex flex-grow-1 flex-column justify-content-center w-25">
+
+    <div class="alert alert-danger" th:if="${errMsg}">
+        Something bad happened!
+    </div>
+
+    <h1 class="">
+        Edit post:
+    </h1>
+
+    <form class="d-flex flex-column" th:action="@{/posts/edit}" th:method="post" th:object="${post}">
+        <label for="title-ip">Title:</label>
+        <input type="text" th:field="*{title}" id="title-ip" class="field mb-3" th:value="${post.title}"/>
+
+        <label for="date-ip">Date:</label>
+        <input type="text" th:field="*{date}" id="date-ip" class="field mb-3" th:value="${post.date}"/>
+
+        <label for="body-ip">Body:</label>
+        <textarea type="text" th:field="*{body}" id="body-ip" class="field mb-3" rows="6" th:value="${post.body}"></textarea>
+
+        <button class="btn btn-outline-secondary" type="submit">Submit Changes</button>
+    </form>
+</div>
+<footer class="" th:replace="/partials/partials :: footer"></footer>
+</body>
+</html>
