@@ -85,21 +85,13 @@ public class PostController {
     public String addPost(@RequestParam String date,@RequestParam String title, @RequestParam String body, Model model) {
 
         Post post = new Post();
-
         post.setDate(date);
         post.setTitle(title);
         post.setBody(body);
 
         User user = userDao.findById(1L);
-
         post.setUser(user);
-        System.out.println(post.getUser().getEmail());
-
         postDao.save(post);
-
-
-//        success message
-//        model.addAttribute("post", "Great, \"" + post.getTitle() + "\" was successfully created.");
         return "redirect:/posts";
     }
 }
