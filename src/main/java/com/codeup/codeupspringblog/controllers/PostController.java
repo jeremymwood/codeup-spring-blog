@@ -108,11 +108,10 @@ public class PostController {
     @PostMapping("/{id}/edit")
     public String editPost(@PathVariable long id, @ModelAttribute Post post) {
 
-//        post = postDao.findById(id).get();
-        User user = userDao.findById(1L);
-        post.setUser(user);
+        Post oGPost = postDao.findById(id).get();
+        post.setId(post.getId());
+        post.setUser(oGPost.getUser());
         postDao.save(post);
-//        return "redirect:/posts/individualPost";
         return "redirect:/posts/{id}";
     }
 }
