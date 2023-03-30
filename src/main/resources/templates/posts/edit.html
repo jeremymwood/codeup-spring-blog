@@ -3,12 +3,12 @@
 <head th:replace="/partials/partials :: head" >
     <title>Edit Posts</title>
 </head>
-<body class="p-3">
+<body class="p-3 d-flex flex-column">
 <!--<header th:replace="/partials/partials :: header"></header>-->
 <nav class="pb-3" th:replace="/partials/partials :: navbar" ></nav>
 
 
-<div class="container d-flex flex-grow-1 flex-column justify-content-center w-25">
+<div class="container flex-grow-1 justify-content-center w-25">
 
     <div class="alert alert-danger" th:if="${errMsg}">
         Something bad happened!

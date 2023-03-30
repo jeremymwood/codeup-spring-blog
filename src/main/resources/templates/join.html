@@ -3,7 +3,7 @@
 <head th:replace="/partials/partials :: head" >
     <title>Show Posts</title>
 </head>
-<body class="p-3">
+<body class="p-3 d-flex flex-column">
 <!--<header th:replace="/partials/partials :: header"></header>-->
 <nav class="pb-3" th:replace="/partials/partials :: navbar" ></nav>
 
@@ -11,7 +11,7 @@
     Something bad happened!
 </div>
 
-<div class="row blog-header-container">
+<div class="flex-grow-1">
     <h1 th:text="${cohort}"></h1>
 
     <form class="d-flex flex-column w-25" action="/join" method="post">

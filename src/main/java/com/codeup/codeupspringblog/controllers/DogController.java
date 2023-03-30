@@ -2,6 +2,7 @@ package com.codeup.codeupspringblog.controllers;
 
 import com.codeup.codeupspringblog.models.Dog;
 import com.codeup.codeupspringblog.repositories.DogRepository;
+import com.codeup.codeupspringblog.services.EmailService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,7 @@ import java.util.List;
 @RequestMapping(path = "/dogs")
 public class DogController {
     private final DogRepository dogDao;
+    private final EmailService emailService;
 
     @GetMapping
     public String all(Model model) {
@@ -55,17 +57,31 @@ public class DogController {
         return "show page for a dog w id " + dogId;
     }
 
-    @GetMapping("/create")
+//    @GetMapping("/dogs")
+//    @ResponseBody
+//    public String createDog() {
+//        System.out.println("link working");
+//        Dog dog = new Dog();
+//        dog.setName("Sophie");
+//        dog.setGender("Female");
+//        System.out.println(dog);
+//
+//        dogDao.save(dog);
+//
+//
+//        return "redirect:/dogs";
+//    }
+
+    @GetMapping("/join")
     @ResponseBody
     public String createDog() {
         System.out.println("link working");
         Dog dog = new Dog();
-        dog.setName("Chips");
-        dog.setGender("Male");
-        System.out.println(dog);
+        dog.setName("Ralph");
 
         dogDao.save(dog);
-        return "dog created";
+
+        return "redirect:/dogs";
     }
 
     @Override

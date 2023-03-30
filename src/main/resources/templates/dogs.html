@@ -3,24 +3,25 @@
 <head th:replace="/partials/partials :: head" >
     <title>Dogs</title>
 </head>
-<body class="p-3">
+<body class="p-3 d-flex flex-column">
 <!--<header th:replace="/partials/partials :: header"></header>-->
 <nav class="pb-3" th:replace="/partials/partials :: navbar" ></nav>
 
 <!--    <h1 th:if="${posts.size() > 0}"><span th:text="${posts.}">(insert posts here)</span></h1>-->
 
-<div class="alert alert-danger" th:if="${errMsg}">
+<div class="alert alert-danger flex-grow-1" th:if="${errMsg}">
     Something bad happened!
 </div>
-<h1>Dogs:</h1>
+<div class="flex-grow-1">
+    <h1>Dogs:</h1>
 
-<h1 th:if="${dogs.size() > 0}"><span th:text="${dogs}">(insert dogs here)</span></h1>
+    <h1 th:if="${dogs.size() > 0}"><span th:text="${dogs}">(insert dogs here)</span></h1>
 
-<div class="blog-header-container">
-    <ul th:each="dog : ${dogs}">
-        <li th:text="${dog.name}" >(insert dog name here)</li>
-    </ul>
-
+    <div class="blog-header-container">
+        <ul th:each="dog : ${dogs}">
+            <li th:text="${dog.name}" >(insert dog name here)</li>
+        </ul>
+    </div>
 </div>
 <footer class="" th:replace="/partials/partials :: footer"></footer>
 </body>

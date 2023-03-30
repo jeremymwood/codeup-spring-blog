@@ -4,6 +4,7 @@ import com.codeup.codeupspringblog.models.Post;
 import com.codeup.codeupspringblog.models.User;
 import com.codeup.codeupspringblog.repositories.PostRepository;
 import com.codeup.codeupspringblog.repositories.UserRepository;
+import com.codeup.codeupspringblog.services.EmailService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,7 @@ import java.util.List;
 public class PostController {
     private final PostRepository postDao;
     private final UserRepository userDao;
+    private final EmailService emailService;
 
 
 
@@ -88,6 +90,7 @@ public class PostController {
         User user = userDao.findById(1L);
         post.setUser(user);
 
+
         //        testing fields
         //        post.setTitle("title");
         //        post.setDate("date");
@@ -95,6 +98,8 @@ public class PostController {
         //        testing
 
         postDao.save(post);
+        emailService.prepareAndSend(user, "Post created", post.getTitle());
+
         return "redirect:/posts";
     }
 
