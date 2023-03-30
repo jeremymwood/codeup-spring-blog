@@ -85,14 +85,15 @@ public class PostController {
 
     @PostMapping("/create")
     public String addPost(@ModelAttribute Post post) {
-
-//        Post post = new Post();
-//        post.setDate(date);
-//        post.setTitle(title);
-//        post.setBody(body);
-
         User user = userDao.findById(1L);
         post.setUser(user);
+
+        //        testing fields
+        //        post.setTitle("title");
+        //        post.setDate("date");
+        //        post.setBody("body");
+        //        testing
+
         postDao.save(post);
         return "redirect:/posts";
     }
@@ -107,9 +108,11 @@ public class PostController {
     @PostMapping("/{id}/edit")
     public String editPost(@PathVariable long id, @ModelAttribute Post post) {
 
+//        post = postDao.findById(id).get();
         User user = userDao.findById(1L);
         post.setUser(user);
         postDao.save(post);
-        return "redirect:/posts";
+//        return "redirect:/posts/individualPost";
+        return "redirect:/posts/{id}";
     }
 }
