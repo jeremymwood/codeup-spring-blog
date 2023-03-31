@@ -17,25 +17,20 @@
 
         <div class="row g-5">
             <div class="col-sm-12 col-md-6"  th:each="post : ${posts}">
-                <div class="post-header">
-                    <h2 class="post-title" th:text="${post.title}">(insert post title)</h2>
-                    <div class="post-date" th:text="${post.date}"></div>
-                    <div class="post-username">
-                        By: <span th:text="${post.user.username}"></span>
+                <div class="card" style="">
+                    <!--            <img src="..." class="card-img-top" alt="...">-->
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${post.title}">(insert post title)</h5>
+                        <div class="blog-menu small-title date" th:text="${post.date}"></div>
+                        <div class="blog-detail">
+                            (<span th:text="${post.user.username}"></span>)
+                        </div>
+                        <div class="blog-article">
+                            <p class="" th:text="${post.body}">(insert post body)</p>
+                        </div>
+                        <a class="btn btn-outline-secondary" th:href="@{|/posts/${post.id}|}">Read more...</a>
                     </div>
                 </div>
-                <div class="post-body" th:text="${post.body}">
-                    <!--            <img src="https://images.unsplash.com/photo-1496629062893-b0f566065d44?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjV8fGJsYWNrJTIwYW5kJTIwd2hpdGV8ZW58MHwwfDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">-->
-                    <!--            **********************-->
-                    <!--            can't get user to work-->
-                    <!--            <div class="blog-detail" th:if="${user.email}  != null">-->
-                    <!--                By: <span th:text="${user.email}"></span>-->
-                    <!--            </div>-->
-                    <!--                one option for hrefs-->
-                    <!--                <a class="f-2 text-dark" th:href="@{/posts/{id}(id=${post.id})}">Read more...</a>-->
-                    <!--                with pipes-->
-                </div>
-                <a class="f-2 text-dark" th:href="@{|/posts/${post.id}|}">Read more...</a>
             </div>
         </div>
     </div>

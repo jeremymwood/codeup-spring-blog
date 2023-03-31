@@ -7,23 +7,24 @@
 <!--    <header th:replace="/partials/partials :: header"></header>-->
     <nav class="pb-3" th:replace="/partials/partials :: navbar" ></nav>
 
-
-    <div class="container flex-grow-1 justify-content-center w-25">
+    <div class="container d-flex flex-grow-1 justify-content-center align-items-center w-50">
         <div class="alert alert-danger" th:if="${errMsg}">
             Something bad happened!
         </div>
-        <div>
-            <div class="blog-article header-article">
-                <h2 class="blog-big__title" th:text="${post.title}">(insert post title)</h2>
+        <div class="card" style="">
+<!--            <img src="..." class="card-img-top" alt="...">-->
+            <div class="card-body">
+                <h5 class="card-title" th:text="${post.title}">(insert post title)</h5>
                 <div class="blog-menu small-title date" th:text="${post.date}"></div>
                 <div class="blog-detail">
                     (<span th:text="${post.user.email}"></span>)
                 </div>
+                <div class="blog-article">
+                    <p class="" th:text="${post.body}">(insert post body)</p>
+                </div>
+                <a class="btn btn-outline-secondary" th:href="@{|/posts/${post.id}/edit|}">Edit Post</a>
+<!--                <a href="#" class="btn btn-primary">Go somewhere</a>-->
             </div>
-            <div class="blog-article">
-                <p class="" th:text="${post.body}">(insert post body)</p>
-            </div>
-            <a class="f-2 text-dark" th:href="@{|/posts/${post.id}/edit|}">Edit Post</a>
         </div>
     </div>
     <footer class="" th:replace="/partials/partials :: footer"></footer>
