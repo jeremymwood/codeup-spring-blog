@@ -7,20 +7,22 @@ body {
     height: 100vh;
     position: relative;
 }
-.navbar-collapse ul {
+
+.navbar-collapse ul, .logout {
     /*margin: 150px auto 0;*/
     padding: 0;
     list-style: none;
     display: table;
-    width: 600px;
+    /*width: 600px;*/
     text-align: center;
 }
-.navbar-collapse li {
+.navbar-collapse li, .logout {
     display: table-cell;
     position: relative;
     /*padding: 15px 0;*/
 }
-.navbar-collapse a {
+
+.navbar-collapse a, .logout {
     color: #ffffff;
     text-transform: uppercase;
     text-decoration: none;
@@ -29,7 +31,7 @@ body {
     display: inline-block;
     position: relative;
 }
-.navbar-collapse a:after {
+.navbar-collapse a:after, .logout:after {
     background: none repeat scroll 0 0 transparent;
     bottom: 0;
     content: "";
@@ -37,11 +39,13 @@ body {
     height: 2px;
     left: 50%;
     position: absolute;
-    background: #ffffff;
+    /*background: #ffffff;*/
+    text-decoration: none;
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0;
 }
-.navbar-collapse a:hover:after {
+.navbar-collapse a:hover:after, .logout:hover:after {
+    text-decoration: none;
     width: 100%;
     left: 0;
 }
@@ -50,13 +54,6 @@ body {
         margin-top: 40px;
     }
 }
-
-/*.post-container {*/
-/*    display: grid;*/
-/*    gap: 1.5rem;*/
-/*    grid-template-columns: repeat(2, 1fr);*/
-/*}*/
-
 
 .footer-dark {
     /*top: auto;*/

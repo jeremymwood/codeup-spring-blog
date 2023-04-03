@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 <head th:fragment="head">
     <meta charset="UTF-8" />
     <title>Home</title>
@@ -22,7 +23,7 @@
         <!--                <span class="navbar-toggler-icon"></span>-->
         <!--            </button>-->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="d-flex">
+            <ul class="my-auto">
                 <!--                    <li><a href="/roll-dice">About</a></li>-->
                 <!--                    <li><a href="/dogs">Portfolio</a></li>-->
                 <!--                    <li><a href="/posts">Blog</a></li>-->
@@ -54,16 +55,24 @@
             <!--                        <a class="nav-link disabled">Disabled</a>-->
             <!--                    </li>-->
             <!--                </ul>-->
-            <form class="d-flex ms-auto ">
+            <form class="d-flex ms-auto">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-secondary" type="submit">Search</button>
+                <button class="btn btn-outline-light" type="submit">Search</button>
             </form>
+            <ul class="my-auto">
+                <li sec:authorize="isAuthenticated()">
+                    <form th:action="@{/logout}" th:method="post">
+                        <button class="btn-link btn logout my-auto" style="margin-top: 8px">Logout</button>
+                    </form>
+                </li>
+                <li sec:authorize="!isAuthenticated()"><a href="/login">Login</a></li>
+            </ul>
         </div>
     </div>
 </nav>
 
     <footer class="footer-dark 100vw" th:fragment="footer">
-        <div class="row p-3">
+        <div class="row py-3 m-0 w-100">
             <div class="col-sm-6 col-md-3 item">
                 <h3>Services</h3>
                 <ul>
