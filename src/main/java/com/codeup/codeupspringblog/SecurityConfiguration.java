@@ -37,19 +37,13 @@ public class SecurityConfiguration {
                 /* Login configuration */
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/posts") // user's home page, it can be any URL
+                .defaultSuccessUrl("/posts", true) // user's home page, it can be any URL
                 .permitAll() // Anyone can go to the login page
 
                 /* Logout configuration */
                 .and()
                 .logout()
                 .logoutSuccessUrl("/") // append a query string value
-
-                /* Pages that can be viewed without having to log in */
-                .and()
-                .authorizeHttpRequests()
-                .requestMatchers("/", "/posts", "/posts/{id}", "/sign-up", "/css/**", "/js/**") // anyone can see home, the posts pages, and sign up
-                .permitAll()
 
                 /* Pages that require authentication */
                 .and()
@@ -59,9 +53,15 @@ public class SecurityConfiguration {
                         "/posts/{id}/edit" // only authenticated users can edit posts
                 )
                 .authenticated()
+
+                /* Pages that can be viewed without having to log in */
+                .and()
+                .authorizeHttpRequests()
+                .requestMatchers("/", "/posts", "/posts/{id}", "/sign-up", "/css/**", "/js/**") // anyone can see home, the posts pages, and sign up
+                .permitAll()
+
         ;
         return http.build();
     }
 
 }
-

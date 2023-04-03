@@ -24,16 +24,11 @@ public class DogController {
     public String all(Model model) {
 
         List<Dog> dogs = dogDao.findAll();
-//        dogs.add(new Dog(1, "Spot"));
-//        dogs.add(new Dog(2, "Barfy"));
 
         model.addAttribute("dogs", dogs);
 
-//        List<Dog> genderDogs = dogDao.findByGender("Female");
-//        System.out.println(genderDogs);
-
         List<Dog> someDogs = dogDao.findLikeName("a");
-        System.out.println(someDogs);
+//        System.out.println(someDogs);
 
 //        System.out.println("Finding spot by his name");
 //        Dog spot = dogDao.findByName("SpotSpot");
@@ -75,7 +70,7 @@ public class DogController {
     @GetMapping("/join")
     @ResponseBody
     public String createDog() {
-        System.out.println("link working");
+//        System.out.println("link working");
         Dog dog = new Dog();
         dog.setName("Ralph");
 

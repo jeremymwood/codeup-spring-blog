@@ -31,7 +31,7 @@ public class PostController {
         model.addAttribute("posts", posts);
 
         List<Post> somePosts = postDao.findLikeName("a");
-        System.out.println(somePosts);
+//        System.out.println(somePosts);
 
         return "posts/show";
     }

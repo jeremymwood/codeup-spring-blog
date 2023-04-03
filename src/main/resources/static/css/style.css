@@ -27,7 +27,7 @@ body {
     text-transform: uppercase;
     text-decoration: none;
     letter-spacing: 0.15em;
-    padding: 0 2rem;
+    padding: 0 1rem;
     display: inline-block;
     position: relative;
 }
@@ -53,6 +53,10 @@ body {
     ul {
         margin-top: 40px;
     }
+}
+.login-card, .create-card, .sign-up-card, .edit-card, .individual-post-card {
+    min-width: 400px;
+    min-height: 500px;
 }
 
 .footer-dark {

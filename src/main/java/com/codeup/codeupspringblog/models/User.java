@@ -26,15 +26,18 @@ public class User {
     @Column(length=255, nullable = false)
     private String password;
 
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
-    @ToString.Exclude
-    private List<Post> post;
+//    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
+//    @ToString.Exclude
+//    private List<Post> post;
 
     public User(User copy) {
         id = copy.id;
         email = copy.email;
         username = copy.username;
         password = copy.password;
+    }
+
+    public static void main(String[] args) {
     }
 
 }
