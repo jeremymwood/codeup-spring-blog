@@ -10,12 +10,14 @@
 <!--    <h1 th:if="${posts.size() > 0}"><span th:text="${posts.}">(insert posts here)</span></h1>-->
 
 
-    <div class="container d-flex flex-grow-1">
+    <div class="container d-flex flex-column flex-grow-1">
         <div class="alert alert-danger" th:if="${errMsg}">
             Something bad happened!
         </div>
 
-        <div class="row h-100 align-content-center my-auto">
+        <h1>Some posts</h1>
+
+        <div class="row h-100 align-content-center my-auto pb-3">
             <div class="col-sm-12 col-md-6 g-3"  th:each="post : ${posts}">
                 <div class="card shadow h-100" style="">
                     <!--            <img src="..." class="card-img-top" alt="...">-->
