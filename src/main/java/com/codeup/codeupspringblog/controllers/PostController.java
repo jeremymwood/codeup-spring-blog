@@ -88,7 +88,8 @@ public class PostController {
 
     @PostMapping("/create")
     public String addPost(@ModelAttribute Post post) {
-        User user = userDao.findById(1L);
+//        User user = userDao.findById(1L);
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         post.setUser(user);
 
 

@@ -22,7 +22,7 @@ body {
     /*padding: 15px 0;*/
 }
 
-.navbar-collapse a, .logout {
+.navbar-collapse a, .logout, .greeting, .greeting span {
     color: #ffffff;
     text-transform: uppercase;
     text-decoration: none;
@@ -55,8 +55,8 @@ body {
     }
 }
 .login-card, .create-card, .sign-up-card, .edit-card, .individual-post-card {
-    min-width: 400px;
-    min-height: 500px;
+    width: 400px;
+    height: 500px;
 }
 
 .footer-dark {
