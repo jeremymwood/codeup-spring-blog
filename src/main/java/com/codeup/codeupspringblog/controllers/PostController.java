@@ -121,4 +121,22 @@ public class PostController {
         postDao.save(post);
         return "redirect:/posts/{id}";
     }
+
+//    @GetMapping("/{id}/delete")
+//    public String showDelete(@PathVariable long id, Model model) {
+//        Post post = postDao.findById(id).get();
+//        model.addAttribute("post", post);
+//        return "posts/delete";
+//    }
+//
+//    @PostMapping("/{id}/delete")
+//    public String deletePost(@PathVariable long id, @ModelAttribute Post post) {
+//
+//        Post post = postDao.deleteById(id);
+//
+////        post.setId(post.getId());
+////        post.setUser(postToDelete.getUser());
+//        postDao.save(post);
+//        return "redirect:/posts/{id}";
+//    }
 }

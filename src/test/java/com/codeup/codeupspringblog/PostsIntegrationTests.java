@@ -84,7 +84,7 @@ public class PostsIntegrationTests {
 
 	@Test
 	public void testCreatePost() throws Exception {
-		// Makes a Post request to /posts/create and expect a redirection to the Ad
+		// Makes a Post request to /posts/create and expect a redirection to the post
 		this.mvc.perform(
 						MockMvcRequestBuilders.post("/posts/create").with(csrf())
 								.session((MockHttpSession) httpSession)
@@ -100,7 +100,7 @@ public class PostsIntegrationTests {
 
 		Post existingPost = postsDao.findAll().get(0);
 
-		// Makes a Get request to /posts/{id} and expect a redirection to the Ad show page
+		// Makes a Get request to /posts/{id} and expect a redirection to the post show page
 		this.mvc.perform(MockMvcRequestBuilders.get("/posts/" + existingPost.getId()))
 				.andExpect(status().isOk())
 				// Test the dynamic content of the page
@@ -111,7 +111,7 @@ public class PostsIntegrationTests {
 	public void testPostsIndex() throws Exception {
 		Post existingPost = postsDao.findAll().get(0);
 
-		// Makes a Get request to /posts and verifies that we get some of the static text of the posts/index.html template and at least the title from the first Ad is present in the template.
+		// Makes a Get request to /posts and verifies that we get some of the static text of the posts/index.html template and at least the title from the first post is present in the template.
 		this.mvc.perform(MockMvcRequestBuilders.get("/posts"))
 				.andExpect(status().isOk())
 				// Test the static content of the page
@@ -119,6 +119,53 @@ public class PostsIntegrationTests {
 				// Test the dynamic content of the page
 				.andExpect(MockMvcResultMatchers.content().string(containsString(existingPost.getTitle())));
 	}
+
+	@Test
+	public void testEditPost() throws Exception {
+		// Gets the first post for tests purposes
+		Post existingPost = postsDao.findAll().get(0);
+
+		// Makes a Post request to /posts/{id}/edit and expect a redirection to the post show page
+		this.mvc.perform(
+						MockMvcRequestBuilders.post("/posts/" + existingPost.getId() + "/edit").with(csrf())
+								.session((MockHttpSession) httpSession)
+								.param("title", "edited title")
+								.param("date", "010101")
+								.param("body", "edited body"))
+				.andExpect(status().is3xxRedirection());
+
+		// Makes a GET request to /posts/{id} and expect a redirection to the post show page
+		this.mvc.perform(MockMvcRequestBuilders.get("/posts/" + existingPost.getId()))
+				.andExpect(status().isOk())
+				// Test the dynamic content of the page
+				.andExpect(MockMvcResultMatchers.content().string(containsString("edited title")))
+				.andExpect(MockMvcResultMatchers.content().string(containsString("010101")))
+				.andExpect(MockMvcResultMatchers.content().string(containsString("edited body")));
+	}
+
+//	@Test
+//	public void testDeletePost() throws Exception {
+//		// Creates a test post to be deleted
+//		this.mvc.perform(
+//						MockMvcRequestBuilders.post("/posts/create").with(csrf())
+//								.session((MockHttpSession) httpSession)
+//								.param("title", "post to be deleted")
+//								.param("date", "020202")
+//								.param("description", "won't last long"))
+//				.andExpect(status().is3xxRedirection());
+//
+//		// Get the recent post that matches the title
+//		Post existingPost = (Post) postsDao.findByTitle("post to be deleted");
+//
+//		// Makes a Post request to /posts/{id}/delete and expect a redirection to the posts index
+//		this.mvc.perform(
+//						MockMvcRequestBuilders.post("/posts/" + existingPost.getId() + "/delete").with(csrf())
+//								.session((MockHttpSession) httpSession)
+//								.param("id", String.valueOf(existingPost.getId())))
+//				.andExpect(status().is3xxRedirection());
+//	}
+
+
 
 }
 
